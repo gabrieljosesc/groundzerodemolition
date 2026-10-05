@@ -47,7 +47,7 @@ export function ContactForm() {
             id="phone"
             name="phone"
             type="tel"
-            placeholder="(416) 555-0000"
+            placeholder="(647) 000-0000"
           />
         </div>
       </div>

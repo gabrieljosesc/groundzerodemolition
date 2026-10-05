@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { navLinks, site } from "@/lib/site";
+import { PhoneIcon } from "@/components/Icons";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -39,11 +40,25 @@ export function Navbar() {
               </Link>
             );
           })}
+
+          <a
+            href={site.phoneHref}
+            className="nav__link nav__call"
+            onClick={() => setOpen(false)}
+          >
+            <PhoneIcon size={16} /> Call {site.phone}
+          </a>
         </nav>
 
-        <Link href="/contact" className="btn btn--primary header__cta">
-          Get a Quote
-        </Link>
+        <div className="header__right">
+          <a href={site.phoneHref} className="header__phone">
+            <PhoneIcon size={16} /> {site.phone}
+          </a>
+
+          <Link href="/contact" className="btn btn--primary header__cta">
+            Get a Quote
+          </Link>
+        </div>
 
         <button
           className="nav-toggle"

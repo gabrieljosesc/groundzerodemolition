@@ -251,8 +251,43 @@ h3 {
   color: var(--accent);
 }
 
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.header__phone svg {
+  color: var(--accent);
+}
+
+.header__phone:hover {
+  color: var(--accent);
+}
+
 .header__cta {
-  margin-left: 10px;
+  margin-left: 14px;
+}
+
+/* Phone link shown only inside the opened mobile menu */
+.nav__call {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent) !important;
+  font-weight: 700;
 }
 
 .nav-toggle {
@@ -821,12 +856,19 @@ h3 {
   }
 
   .nav,
-  .header__cta {
+  .header__right {
     display: none;
   }
 
   .nav-toggle {
     display: inline-flex;
+  }
+
+  .nav--open .nav__call {
+    display: inline-flex;
+    padding: 12px 14px;
+    border-top: 1px solid var(--border);
+    margin-top: 6px;
   }
 
   .nav--open {

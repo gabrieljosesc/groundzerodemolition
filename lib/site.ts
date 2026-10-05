@@ -12,10 +12,10 @@ export const site = {
     "Professional demolition and excavation contractor serving the Greater Toronto Area and surrounding Ontario communities.",
 
   // --- CONTACT DETAILS ---
-  // Email is the client's REAL address (mailbox hosted at mail.groundzerodemo.ca).
-  // Phone + address are still MOCK placeholders — swap for the client's real ones.
-  phone: "(416) 555-0142",
-  phoneHref: "tel:+14165550142",
+  // Phone + email are the client's REAL details.
+  // Address is still a MOCK placeholder — swap for the client's real one.
+  phone: "(647) 479-1690",
+  phoneHref: "tel:+16474791690",
   email: "info@groundzerodemo.ca",
   emailHref: "mailto:info@groundzerodemo.ca",
   address: "120 Industrial Drive, Unit 4, Toronto, ON",
