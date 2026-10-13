@@ -23,6 +23,9 @@ export const site = {
 
   serviceArea:
     "Greater Toronto Area and surrounding Ontario regions, including Mississauga, Brampton, Vaughan, Markham, Hamilton, Oshawa and beyond.",
+
+  // --- SOCIAL ---
+  facebook: "https://www.facebook.com/profile.php?id=61595404468815",
 } as const;
 
 export const navLinks = [

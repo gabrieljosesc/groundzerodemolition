@@ -5,6 +5,7 @@ import { images, site } from "@/lib/site";
 import { ContactForm } from "@/components/ContactForm";
 import {
   ClockIcon,
+  FacebookIcon,
   MailIcon,
   MapPinIcon,
   PhoneIcon,
@@ -97,6 +98,19 @@ export default function ContactPage() {
                   </div>
                 </div>
               ))}
+
+              <div className="footer__social" style={{ marginTop: 24 }}>
+                <span className="footer__social-label">Follow us</span>
+                <a
+                  href={site.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-btn"
+                  aria-label="Follow Ground Zero Demolition on Facebook"
+                >
+                  <FacebookIcon size={20} />
+                </a>
+              </div>
             </div>
 
             <ContactForm />

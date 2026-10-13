@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { navLinks, services, site } from "@/lib/site";
+import { FacebookIcon } from "@/components/Icons";
 
 export function Footer() {
   return (
@@ -15,6 +16,18 @@ export function Footer() {
               </span>
             </Link>
             <p className="footer__about">{site.description}</p>
+            <div className="footer__social">
+              <span className="footer__social-label">Follow us</span>
+              <a
+                href={site.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-btn"
+                aria-label="Follow Ground Zero Demolition on Facebook"
+              >
+                <FacebookIcon size={20} />
+              </a>
+            </div>
           </div>
 
           <div className="footer__col">
