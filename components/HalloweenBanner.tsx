@@ -2,16 +2,17 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { site } from "@/lib/site";
+import { isPromoActive, site } from "@/lib/site";
 
 const DISMISS_KEY = "gz-halloween-dismissed";
 
 export function HalloweenBanner() {
   const [hidden, setHidden] = useState(true);
 
-  // Only show after mount, and respect a previous dismissal (per browser).
+  // Only show after mount: respect the promo end date (per viewer's clock)
+  // and a previous dismissal (per browser).
   useEffect(() => {
-    if (!site.promo.enabled) return;
+    if (!isPromoActive()) return;
     try {
       if (localStorage.getItem(DISMISS_KEY) !== "1") setHidden(false);
     } catch {
@@ -19,7 +20,7 @@ export function HalloweenBanner() {
     }
   }, []);
 
-  if (!site.promo.enabled || hidden) return null;
+  if (hidden) return null;
 
   const dismiss = () => {
     setHidden(true);

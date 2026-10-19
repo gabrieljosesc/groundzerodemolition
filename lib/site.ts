@@ -27,16 +27,27 @@ export const site = {
   facebook: "https://www.facebook.com/profile.php?id=61595404468815",
 
   // --- SEASONAL PROMO (Halloween free estimate) ---
-  // Set enabled: false to hide the banner after the promo ends.
+  // The banner + callout hide automatically after `endsOn` (local date,
+  // inclusive). Set enabled: false to hide early. After Nov 30, swap this
+  // block for the Christmas Special (new title/text/emoji/endsOn).
   promo: {
     enabled: true,
     emoji: "🎃",
     title: "Halloween Special",
-    text: "Book this October and your on-site estimate is FREE — no tricks.",
+    text: "Book before Nov 30 and your on-site estimate is FREE — no tricks.",
     cta: "Claim Free Estimate",
     href: "/contact?promo=halloween",
+    endsOn: "2026-11-30", // inclusive; promo stops showing after this date
   },
 } as const;
+
+/** True while the seasonal promo is enabled and today is on/before endsOn. */
+export function isPromoActive(now: Date = new Date()): boolean {
+  if (!site.promo.enabled) return false;
+  const end = new Date(`${site.promo.endsOn}T23:59:59`);
+  if (Number.isNaN(end.getTime())) return true; // bad date → don't hide
+  return now.getTime() <= end.getTime();
+}
 
 /** Real project photos stored in /public/images. */
 export const photos = {

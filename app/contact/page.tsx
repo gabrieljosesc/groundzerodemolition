@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { images, site } from "@/lib/site";
 import { ContactForm } from "@/components/ContactForm";
+import { PromoCallout } from "@/components/PromoCallout";
 import {
   ClockIcon,
   FacebookIcon,
@@ -67,14 +68,7 @@ export default function ContactPage() {
             Have a demolition or excavation project in mind? Reach out and our
             team will get back to you with a free, no-obligation estimate.
           </p>
-          {site.promo.enabled && (
-            <div className="promo-callout">
-              <span aria-hidden="true">{site.promo.emoji}</span>
-              <span>
-                <strong>{site.promo.title}:</strong> {site.promo.text}
-              </span>
-            </div>
-          )}
+          <PromoCallout />
         </div>
       </section>
 
