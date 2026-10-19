@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { HalloweenBanner } from "@/components/HalloweenBanner";
 import { site } from "@/lib/site";
 
 // Google Ads conversion tracking tag (gtag.js)
@@ -39,6 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.variable}>
+        <HalloweenBanner />
         <Navbar />
         <main>{children}</main>
         <Footer />

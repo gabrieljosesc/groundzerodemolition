@@ -3,12 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { images, services } from "@/lib/site";
 import { CtaBand } from "@/components/CtaBand";
-import { CheckIcon } from "@/components/Icons";
+import { CheckIcon, DemolitionIcon, ExcavationIcon } from "@/components/Icons";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
     "Professional demolition and excavation services across the Greater Toronto Area and Ontario.",
+};
+
+const icons: Record<string, React.ReactNode> = {
+  demolition: <DemolitionIcon size={28} />,
+  excavation: <ExcavationIcon size={28} />,
 };
 
 const process = [
@@ -57,53 +62,51 @@ export default function ServicesPage() {
           <h1>Demolition &amp; Excavation</h1>
           <p>
             Two core services, handled by a professional crew with the right
-            equipment for the job — from teardown to build-ready ground.
+            equipment for the job — from teardown to build-ready ground. Click a
+            service to see the details and recent projects.
           </p>
         </div>
       </section>
 
+      {/* Service cards → detail pages */}
       <section className="section">
         <div className="container">
-          {services.map((service, i) => (
-            <div
-              key={service.slug}
-              id={service.slug}
-              className={
-                i % 2 === 1 ? "service-row service-row--reverse" : "service-row"
-              }
-            >
-              <div className="service-row__media">
-                <Image
-                  src={service.image}
-                  alt={`${service.title} work`}
-                  fill
-                  sizes="(max-width: 900px) 100vw, 600px"
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-              <div>
-                <span className="eyebrow">
-                  {String(i + 1).padStart(2, "0")} — Service
-                </span>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-                <ul className="feature-list">
-                  {service.features.map((f) => (
-                    <li key={f}>
-                      <CheckIcon /> {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/contact"
-                  className="btn btn--primary"
-                  style={{ marginTop: 26 }}
-                >
-                  Request a Quote
-                </Link>
-              </div>
-            </div>
-          ))}
+          <div className="grid grid--2">
+            {services.map((service) => (
+              <Link
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                className="service-overview-card"
+              >
+                <div className="service-overview-card__media">
+                  <Image
+                    src={service.image}
+                    alt={`${service.title} work`}
+                    fill
+                    sizes="(max-width: 900px) 100vw, 580px"
+                    style={{ objectFit: "cover" }}
+                  />
+                  <span className="service-overview-card__badge">
+                    {icons[service.slug]}
+                  </span>
+                </div>
+                <div className="service-overview-card__body">
+                  <h3>{service.title}</h3>
+                  <p>{service.short}</p>
+                  <ul className="feature-list" style={{ margin: "16px 0 20px" }}>
+                    {service.features.slice(0, 4).map((f) => (
+                      <li key={f}>
+                        <CheckIcon /> {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <span className="btn btn--primary" style={{ pointerEvents: "none" }}>
+                    View {service.title} Details
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

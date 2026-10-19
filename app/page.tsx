@@ -112,7 +112,7 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <Link
-                  href={`/services#${service.slug}`}
+                  href={`/services/${service.slug}`}
                   className="btn btn--ghost"
                 >
                   Learn More
