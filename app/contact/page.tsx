@@ -15,7 +15,8 @@ import {
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Ground Zero Demolition for a free demolition or excavation quote in the Greater Toronto Area.",
+    "Get in touch with Ground Zero Demolition for a free demolition or excavation quote in the Greater Toronto Area. Call (647) 479-1690.",
+  alternates: { canonical: "/contact" },
 };
 
 const details = [

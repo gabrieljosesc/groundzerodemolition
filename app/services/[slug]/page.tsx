@@ -23,9 +23,17 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = getService(slug);
   if (!service) return { title: "Service Not Found" };
+  const canonical = `/services/${service.slug}`;
   return {
-    title: service.title,
+    title: `${service.title} Services in the GTA`,
     description: service.description,
+    alternates: { canonical },
+    openGraph: {
+      title: `${service.title} | ${site.name}`,
+      description: service.description,
+      url: `${site.url}${canonical}`,
+      images: [{ url: service.image, width: 1200, height: 630, alt: service.title }],
+    },
   };
 }
 

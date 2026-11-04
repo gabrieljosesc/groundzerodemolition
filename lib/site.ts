@@ -10,6 +10,11 @@ export const site = {
   description:
     "Professional demolition and excavation contractor serving the Greater Toronto Area and surrounding Ontario communities.",
 
+  // Canonical production URL (used for SEO metadata, sitemap, structured data).
+  url: "https://groundzerodemo.ca",
+  ogImage: "/og-image.jpg",
+  priceRange: "$$",
+
   // --- CONTACT DETAILS ---
   // Phone + email are the client's REAL details.
   // Address is still a MOCK placeholder — swap for the client's real one.

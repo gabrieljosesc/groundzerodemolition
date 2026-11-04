@@ -6,9 +6,10 @@ import { CtaBand } from "@/components/CtaBand";
 import { CheckIcon, DemolitionIcon, ExcavationIcon } from "@/components/Icons";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Demolition & Excavation Services",
   description:
-    "Professional demolition and excavation services across the Greater Toronto Area and Ontario.",
+    "Professional demolition and excavation services across the Greater Toronto Area and Ontario — residential teardown, interior strip-outs, site prep, foundation excavation and more.",
+  alternates: { canonical: "/services" },
 };
 
 const icons: Record<string, React.ReactNode> = {

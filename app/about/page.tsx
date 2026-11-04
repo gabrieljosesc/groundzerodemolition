@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "About Us",
   description:
     "Learn about Ground Zero Demolition — a professional demolition and excavation contractor serving the Greater Toronto Area and Ontario.",
+  alternates: { canonical: "/about" },
 };
 
 const values = [
