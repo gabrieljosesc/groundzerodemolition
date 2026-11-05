@@ -115,7 +115,7 @@ export default function HomePage() {
                   href={`/services/${service.slug}`}
                   className="btn btn--ghost"
                 >
-                  Learn More
+                  Learn more about {service.title}
                 </Link>
               </div>
             ))}

@@ -31,7 +31,7 @@ export function Footer() {
           </div>
 
           <div className="footer__col">
-            <h4>Company</h4>
+            <h2>Company</h2>
             <ul>
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -42,7 +42,7 @@ export function Footer() {
           </div>
 
           <div className="footer__col">
-            <h4>Get in Touch</h4>
+            <h2>Get in Touch</h2>
             <ul>
               <li>
                 <a href={site.phoneHref}>{site.phone}</a>

@@ -6,7 +6,7 @@
   --border: #2c313b;
   --text: #f4f5f7;
   --text-muted: #a6adba;
-  --text-dim: #767e8c;
+  --text-dim: #8e96a8;
   --accent: #f97316;
   --accent-dark: #ea580c;
   --accent-soft: rgba(249, 115, 22, 0.12);
@@ -1047,8 +1047,9 @@ h3 {
   color: #ffffff;
 }
 
-.footer__col h4 {
+.footer__col h2 {
   font-size: 0.8rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--text-dim);
