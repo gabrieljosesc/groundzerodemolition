@@ -7,20 +7,22 @@ import { isPromoActive, site } from "@/lib/site";
 const DISMISS_KEY = "gz-halloween-dismissed";
 
 export function HalloweenBanner() {
-  const [hidden, setHidden] = useState(true);
+  // Rendered on the server (and first client render) so it's part of the first
+  // paint — no layout shift. After mount we hide it if the promo has ended
+  // (per viewer's clock) or it was dismissed in this browser.
+  const [hidden, setHidden] = useState(false);
 
-  // Only show after mount: respect the promo end date (per viewer's clock)
-  // and a previous dismissal (per browser).
   useEffect(() => {
-    if (!isPromoActive()) return;
+    let hide = !isPromoActive();
     try {
-      if (localStorage.getItem(DISMISS_KEY) !== "1") setHidden(false);
+      if (localStorage.getItem(DISMISS_KEY) === "1") hide = true;
     } catch {
-      setHidden(false);
+      /* ignore */
     }
+    if (hide) setHidden(true);
   }, []);
 
-  if (hidden) return null;
+  if (!site.promo.enabled || hidden) return null;
 
   const dismiss = () => {
     setHidden(true);
